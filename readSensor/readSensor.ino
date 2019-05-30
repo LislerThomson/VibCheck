@@ -21,4 +21,5 @@ int dataSensor = digitalRead(readSensor);
 // print the value read from sensor on the serial monitor
 Serial.println(dataSensor);
 delay(1);
+// hahaha
 }
