@@ -1,4 +1,4 @@
-/*
+﻿/*
    Authors: Lisler Thomson
             Nivedita Rajendran
             Shadab Saiyed
@@ -55,7 +55,7 @@ void setup()
   // Power on the ADXL345
   adxl.powerOn();
 
-  adxl.setRangeSetting(2);           // Give the range settings
+  adxl.setRangeSetting(2);           // Give the range settings 2g,4g,8g,16g
 
   adxl.setSpiBit(0);                  // Configure the device to be in 4 wire SPI mode when set to '0' or 3 wire SPI mode when set to 1
 
@@ -95,10 +95,9 @@ void loop()
 
   // Read the accelerometer values and store them in variables declared above x,y,z
   adxl.readAccel(&x, &y, &z);         
-
-  // Stores all three axis values to a single array to transmit
-  uint8_t toSend[] = {x, y, z};
-
+ //delay(1);
+  // Stores all axis value to a single array to transmit
+  uint8_t toSend[] = {z};
   // Sends Data through LoRa
   rf95.send(toSend, sizeof(toSend));
   rf95.waitPacketSent(); // Waits till the transmission is completed
